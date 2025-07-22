@@ -1,0 +1,104 @@
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  margin: 0;
+  color: #333;
+}
+
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #007bff;
+  margin-bottom: 25px;
+}
+
+.camera-section {
+  position: relative;
+  width: 100%;
+  max-width: 640px; /* Standard webcam width */
+  margin: 0 auto 20px auto;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.countdown-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8em;
+  color: white;
+  font-weight: bold;
+  display: none; /* Hidden by default */
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  width: 55%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.photos-preview {
+  display: flex;
+  flex-direction: column; /* Stack photos vertically */
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  padding: 10px;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  min-height: 100px; /* To show border even when empty */
+}
+
+.photos-preview img {
+  width: 100%;
+  max-width: 320px; /* Example size for captured photos */
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

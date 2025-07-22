@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Booth</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Photo Booth</h1>
+      <div class="camera-section">
+        <video id="webcamFeed" autoplay playsinline></video>
+        <div id="countdown" class="countdown-overlay"></div>
+      </div>
+      <button id="startButton">Start Capture</button>
+      <div class="photos-preview" id="photosPreview"></div>
+      <button id="downloadButton" style="display: none">Download Photos</button>
+    </div>
+
+    <canvas id="hiddenCanvas" style="display: none"></canvas>
+
+    <script src="script.js"></script>
+  </body>
+</html>
