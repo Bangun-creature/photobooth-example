@@ -161,15 +161,46 @@ printButton.addEventListener("click", () => {
         printWindow.document.write("<html><head><title>Print Photos</title>");
         printWindow.document.write("<style>");
         // CSS untuk memastikan gambar tampil optimal di halaman cetak
-        printWindow.document.write(
-          "body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: white; }"
-        );
-        printWindow.document.write(
-          "img { max-width: 100%; height: auto; display: block; }"
-        );
-        printWindow.document.write(
-          "@media print { body { background-color: white; } img { width: 100%; height: auto; page-break-after: always; } }"
-        );
+        // printWindow.document.write(
+        //   "body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: white; }"
+        // );
+        // printWindow.document.write(
+        //   "img { max-width: 100%; height: auto; display: block; }"
+        // );
+        // printWindow.document.write(
+        //   "@media print { body { background-color: white; } img { width: 100%; height: auto; page-break-after: always; } }"
+        // );
+
+        printWindow.document.write(`
+            body {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start; /* Ubah dari center menjadi flex-start */
+                min-height: 100vh;
+                background-color: white;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            @media print {
+                body {
+                    background-color: white;
+                }
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+                /* ==== Tambahkan atau sesuaikan aturan @page ini ==== */
+                @page {
+                    size: auto; /* Biarkan browser menentukan ukuran terbaik */
+                    margin: 0; /* Setel semua margin ke 0 */
+                }
+            }
+        `);
         printWindow.document.write("</style>");
         printWindow.document.write("</head><body>");
         // Langkah 5: Panggil window.print() setelah gambar dimuat, lalu tutup jendela setelah dicetak/dibatalkan
