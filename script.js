@@ -61,9 +61,31 @@ function takePhotoSequence() {
 
 // Capture a photo from the webcam feed
 function capturePhoto() {
+  // hiddenCanvas.width = webcamFeed.videoWidth;
+  // hiddenCanvas.height = webcamFeed.videoHeight;
+  // context.drawImage(webcamFeed, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
+  // const photoDataUrl = hiddenCanvas.toDataURL("image/png");
+  // capturedPhotos.push(photoDataUrl);
+  // displayPhoto(photoDataUrl);
+
   hiddenCanvas.width = webcamFeed.videoWidth;
   hiddenCanvas.height = webcamFeed.videoHeight;
+
+  // Save the current canvas state (important for transformations)
+  context.save();
+
+  // Move the origin to the right edge of the canvas
+  context.translate(hiddenCanvas.width, 0);
+
+  // Flip the context horizontally
+  context.scale(-1, 1);
+
+  // Draw the image, which will now be flipped
   context.drawImage(webcamFeed, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
+
+  // Restore the canvas state to its original (un-flipped) state
+  context.restore();
+
   const photoDataUrl = hiddenCanvas.toDataURL("image/png");
   capturedPhotos.push(photoDataUrl);
   displayPhoto(photoDataUrl);
