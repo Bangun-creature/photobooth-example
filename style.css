@@ -42,6 +42,8 @@ video {
   width: 100%;
   height: auto;
   display: block;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .countdown-overlay {
