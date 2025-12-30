@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo Booth</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
@@ -13,13 +19,11 @@
         <video id="webcamFeed" autoplay playsinline></video>
         <div id="countdown" class="countdown-overlay"></div>
       </div>
-      <button id="startButton">Start Capture</button>
+      <button id="startButton">Start</button>
       <div class="photos-preview" id="photosPreview"></div>
       <div class="buttons">
-        <button id="downloadButton" style="display: none">
-          Download Photos
-        </button>
-        <button id="printButton" style="display: none">Print Photos</button>
+        <button id="downloadButton" style="display: none">Download</button>
+        <button id="printButton" style="display: none">Print</button>
       </div>
     </div>
 

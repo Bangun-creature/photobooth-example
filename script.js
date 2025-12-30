@@ -4,6 +4,7 @@ const countdownOverlay = document.getElementById("countdown");
 const photosPreview = document.getElementById("photosPreview");
 const downloadButton = document.getElementById("downloadButton");
 const printButton = document.getElementById("printButton");
+const backButton = document.getElementById("backButton");
 const hiddenCanvas = document.getElementById("hiddenCanvas");
 const context = hiddenCanvas.getContext("2d");
 
@@ -31,6 +32,7 @@ startButton.addEventListener("click", () => {
   startButton.disabled = true;
   downloadButton.style.display = "none";
   printButton.style.display = "none";
+  backButton.style.display = "none";
   photosPreview.innerHTML = ""; // Clear previous photos
   capturedPhotos = [];
   photoCount = 0;
@@ -59,6 +61,7 @@ function takePhotoSequence() {
   } else {
     downloadButton.style.display = "block"; // Show download button
     printButton.style.display = "block"; // Show download button
+    backButton.style.display = "block"; // Show download button
   }
 }
 
@@ -77,6 +80,7 @@ function capturePhoto() {
   context.scale(-1, 1);
 
   // Draw the image, which will now be flipped
+  /*Image Draw*/
   context.drawImage(webcamFeed, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
 
   // Restore the canvas state to its original (un-flipped) state
@@ -93,6 +97,11 @@ function displayPhoto(photoDataUrl) {
   img.src = photoDataUrl;
   photosPreview.appendChild(img);
 }
+
+// Event listener untuk tombol back
+backButton.addEventListener("click", () => {
+  window.location.href = "index.html";
+});
 
 // Event listener untuk tombol 'Print Photos'
 printButton.addEventListener("click", () => {
@@ -191,7 +200,8 @@ printButton.addEventListener("click", () => {
                     background-color: white;
                 }
                 img {
-                    width: 100%;
+                    // width: 100%;
+                    width: 10cm;
                     height: auto;
                 }
                 /* ==== Tambahkan atau sesuaikan aturan @page ini ==== */
@@ -257,7 +267,7 @@ downloadButton.addEventListener("click", () => {
         const finalContext = finalCanvas.getContext("2d");
 
         // Set background to white
-        finalContext.fillStyle = "white";
+        finalContext.fillStyle = "#0284c7"; /*Warna Background Foto*/
         finalContext.fillRect(0, 0, finalCanvasWidth, finalCanvasHeight);
 
         let currentY = PADDING; // Start drawing photos after top padding
