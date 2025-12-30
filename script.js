@@ -4,7 +4,7 @@ const countdownOverlay = document.getElementById("countdown");
 const photosPreview = document.getElementById("photosPreview");
 const downloadButton = document.getElementById("downloadButton");
 const printButton = document.getElementById("printButton");
-const backButton = document.getElementById("backButton");
+// const backButton = document.getElementById("backButton");
 const hiddenCanvas = document.getElementById("hiddenCanvas");
 const context = hiddenCanvas.getContext("2d");
 
@@ -32,7 +32,7 @@ startButton.addEventListener("click", () => {
   startButton.disabled = true;
   downloadButton.style.display = "none";
   printButton.style.display = "none";
-  backButton.style.display = "none";
+  // backButton.style.display = "none";
   photosPreview.innerHTML = ""; // Clear previous photos
   capturedPhotos = [];
   photoCount = 0;
@@ -61,7 +61,7 @@ function takePhotoSequence() {
   } else {
     downloadButton.style.display = "block"; // Show download button
     printButton.style.display = "block"; // Show download button
-    backButton.style.display = "block"; // Show download button
+    // backButton.style.display = "block"; // Show download button
   }
 }
 
@@ -99,9 +99,9 @@ function displayPhoto(photoDataUrl) {
 }
 
 // Event listener untuk tombol back
-backButton.addEventListener("click", () => {
-  window.location.href = "index.html";
-});
+// backButton.addEventListener("click", () => {
+//   window.location.href = "index.html";
+// });
 
 // Event listener untuk tombol 'Print Photos'
 printButton.addEventListener("click", () => {
