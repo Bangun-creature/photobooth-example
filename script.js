@@ -257,9 +257,14 @@ downloadButton.addEventListener("click", () => {
         // All images loaded, proceed to draw on canvas
 
         // Calculate final canvas dimensions including padding and gaps
+        const bottomSpace = 300;
+
         const finalCanvasWidth = maxWidth + PADDING * 2;
         const finalCanvasHeight =
-          totalPhotosHeight + GAP * (NUMBER_OF_PHOTOS - 1) + PADDING * 2;
+          totalPhotosHeight +
+          GAP * (NUMBER_OF_PHOTOS - 1) +
+          PADDING * 2 +
+          bottomSpace;
 
         const finalCanvas = document.createElement("canvas");
         finalCanvas.width = finalCanvasWidth;
@@ -271,6 +276,7 @@ downloadButton.addEventListener("click", () => {
         finalContext.fillRect(0, 0, finalCanvasWidth, finalCanvasHeight);
 
         let currentY = PADDING; // Start drawing photos after top padding
+
         tempImages.forEach((imgToDraw) => {
           // Draw each image, centering it if its width is less than maxWidth
           const xOffset = PADDING + (maxWidth - imgToDraw.width) / 2;
@@ -283,6 +289,19 @@ downloadButton.addEventListener("click", () => {
           );
           currentY += imgToDraw.height + GAP; // Move Y for the next photo, adding the gap
         });
+
+        // Tambahkan teks:
+        finalContext.fillStyle = "#000000";
+        finalContext.textAlign = "center";
+        finalContext.font = "25px 'Press Start 2P', cursive";
+
+        const textBottom = "#PhotoboothProject2025";
+
+        const xPos = finalCanvasWidth / 2;
+        const yPos = currentY + 280;
+
+        // Gambar text ke kanvas:
+        finalContext.fillText(textBottom, xPos, yPos);
 
         const downloadLink = document.createElement("a");
         downloadLink.href = finalCanvas.toDataURL("image/png");
