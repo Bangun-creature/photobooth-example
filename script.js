@@ -267,7 +267,7 @@ downloadButton.addEventListener("click", () => {
         const finalContext = finalCanvas.getContext("2d");
 
         // Set background to white
-        finalContext.fillStyle = "#0284c7"; /*Warna Background Foto*/
+        finalContext.fillStyle = "#FFFFFF"; /*Warna Background Foto*/
         finalContext.fillRect(0, 0, finalCanvasWidth, finalCanvasHeight);
 
         let currentY = PADDING; // Start drawing photos after top padding
