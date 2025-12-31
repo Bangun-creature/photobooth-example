@@ -295,7 +295,7 @@ downloadButton.addEventListener("click", () => {
         finalContext.textAlign = "center";
         finalContext.font = "25px 'Press Start 2P', cursive";
 
-        const textBottom = "#Photobooth2025";
+        const textBottom = "";
 
         const xPos = finalCanvasWidth / 2;
         const yPos = currentY + 280;
